@@ -1,4 +1,4 @@
-import { Ad1, Ad2, Ad3, SmallAd } from "@/components/ads/ads";
+import { Ad1, SmallAd } from "@/components/ads/ads";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
