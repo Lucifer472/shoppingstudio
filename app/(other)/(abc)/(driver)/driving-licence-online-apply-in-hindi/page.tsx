@@ -8,7 +8,7 @@ const aPage = () => {
   <article id="post-4940" class="post-4940 post type-post status-publish format-standard has-post-thumbnail hentry category-4 category-13 tag-l3 infinite-scroll-item no-featured-image-padding" itemtype="https://schema.org/CreativeWork" itemscope="" style="height: auto !important;">
 <div class="inside-article" style="height: auto !important;">
 <header class="entry-header">
-<h1 class="entry-title" itemprop="headline"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">How to apply and check driving license online</font></font></h1> </header>
+<h2 class="entry-title" itemprop="headline"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">How to apply and check driving license online</font></font></h2> </header>
 <div class="entry-content" itemprop="text" style="height: auto !important;">
 
 
