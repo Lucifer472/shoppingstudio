@@ -7,7 +7,7 @@ const aPage = () => {
   <article id="post-144889" class="post-144889 post type-post status-publish format-standard has-post-thumbnail hentry category-citizen-services category-must-knows tag-parivahan-gujarat tag-parivahan-sewa tag-parivahan-sewa-gujarat tag-parivahan-sewa-portal">
 	
 	<header class="entry-header">
-		<h1 class="entry-title">Parivahan Gujarat: How to download driving licence?</h1>		<!-- <div class="ad_pushup_title">
+		<h2 class="entry-title">Parivahan Gujarat: How to download driving licence?</h2>		<!-- <div class="ad_pushup_title">
 			<div id="ccdcfe7d-93f6-4b1d-950c-18121d99fc57" class="_ap_apex_ad">
 				<script  data-wpspdn-after="REORDER" type="javascript/blocked">
 					var adpushup = window.adpushup = window.adpushup || {};
