@@ -10,7 +10,7 @@ const InterstitialAd = () => {
       googletag.cmd.push(() => {
         // Define a web interstitial ad slot.
         interstitialSlot = googletag.defineOutOfPageSlot(
-          "/23097334988/SS_INTERESTIAL",
+          "/23097334988/F123097334988/A1",
           googletag.enums.OutOfPageFormat.INTERSTITIAL
         );
 

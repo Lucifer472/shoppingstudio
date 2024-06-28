@@ -9,7 +9,7 @@ const AnchorAd = () => {
 
       googletag.cmd.push(() => {
         anchorSlot = googletag.defineOutOfPageSlot(
-          "/23097334988/SS_ANCHOR",googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
+          "/23097334988/A1",googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
         );
 
         // Enable SRA and services.
