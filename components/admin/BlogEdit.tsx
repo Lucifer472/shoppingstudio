@@ -30,6 +30,8 @@ import Editor from "./Editor";
 import { category } from "@/constant";
 import { blog } from "@prisma/client";
 import { blogSchema } from "@/schema";
+import { LiveBlogSearch } from "./live-blog-search";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 
 // Main BLog section
 
@@ -42,7 +44,12 @@ const BlogEdit = ({
   id: number;
   blogData: any;
 }) => {
-  const [data, setData] = useState<any>({});
+  const [data, setData] = useState<any>({
+    time: 1719483963783,
+    blocks: blogData,
+    version: "2.29.1",
+  });
+  const indexValues = ["one", "two", "three"];
 
   const form = useForm<z.infer<typeof blogSchema>>({
     resolver: zodResolver(blogSchema),
@@ -53,16 +60,15 @@ const BlogEdit = ({
       faq: JSON.parse(values.faq as string),
       keywords: values.keywords,
       url: values.url,
+      connect: values.connect,
+      isIndex: values.isIndex,
+      isPending: values.isPending === true ? "true" : "false",
+      pageText: values.pageText === null ? "" : values.pageText,
     },
   });
 
-  const initialData = {
-    time: 1719483963783,
-    blocks: blogData,
-    version: "2.29.1",
-  };
-
   function onSubmit(values: z.infer<typeof blogSchema>) {
+    console.log(data);
     fetch("/api/update", {
       method: "POST",
       body: JSON.stringify({ ...values, data, id }),
@@ -189,10 +195,106 @@ const BlogEdit = ({
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="isPending"
+          render={({ field }) => (
+            <FormItem className="space-y-3">
+              <FormLabel>
+                Pending or Not (Pending Blog Not Available without URL)
+              </FormLabel>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value.toString()}
+                  className="flex flex-col space-y-1"
+                >
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="true" />
+                    </FormControl>
+                    <FormLabel className="font-normal">is Pending</FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="false" />
+                    </FormControl>
+                    <FormLabel className="font-normal">
+                      is Not Pending
+                    </FormLabel>
+                  </FormItem>
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="isIndex"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Index Page</FormLabel>
+              <FormControl>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {indexValues.map((l) => (
+                      <SelectItem key={l} value={l} className="capitalize">
+                        {l}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </FormControl>
+              <FormDescription>
+                Please Select Index for Page (default: One)
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="connect"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Connect to Blog</FormLabel>
+              <FormControl>
+                <LiveBlogSearch
+                  initialValue={values.connect}
+                  setField={field.onChange}
+                />
+              </FormControl>
+              <FormDescription>Connect to Next Page</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="pageText"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Page Text</FormLabel>
+              <FormControl>
+                {/* @ts-ignore */}
+                <Input placeholder="Main Title" {...field} />
+              </FormControl>
+              <FormDescription>This is the Main Title</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <div className="flex flex-col w-full">
           <span className="pb-4 text-xl font-medium">Add Blog</span>
           <div className="w-full border border-slate-200 rounded-md px-10 py-8">
-            <Editor setData={setData} initialData={initialData} />
+            <Editor setData={setData} initialData={data} />
           </div>
         </div>
         <div className="flex flex-col w-full">
