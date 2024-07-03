@@ -7,8 +7,8 @@ export const Ad1 = () => {
   return (
     <ClientWrapper>
       <AdsWrapper
-        id="div-gpt-ad-1719580224711-0"
-        label="/23097334988/N1"
+        id="div-gpt-ad-1720011994746-0"
+        label="/23097334988/N4"
         size={[336, 280]}
       />
     </ClientWrapper>
@@ -19,8 +19,8 @@ export const Ad2 = () => {
   return (
     <ClientWrapper>
       <AdsWrapper
-        id="div-gpt-ad-1719580295630-0"
-        label="/23097334988/N2"
+        id="div-gpt-ad-1720012160680-0"
+        label="/23097334988/N5"
         size={[336, 280]}
       />
     </ClientWrapper>
@@ -31,8 +31,8 @@ export const Ad3 = () => {
   return (
     <ClientWrapper>
       <AdsWrapper
-        id="div-gpt-ad-1719580362526-0"
-        label="/23097334988/N3"
+        id="div-gpt-ad-1720012197324-0"
+        label="/23097334988/N6"
         size={[336, 280]}
       />
     </ClientWrapper>
@@ -43,8 +43,8 @@ export const Ad4 = () => {
   return (
     <ClientWrapper>
       <AdsWrapper
-        id="div-gpt-ad-1710676762384-0"
-        label="/23097334988/SS_9_336x280"
+        id="div-gpt-ad-1720012254629-0"
+        label="/23097334988/N7"
         size={[336, 280]}
       />
     </ClientWrapper>
@@ -68,8 +68,8 @@ export const SmallAd = () => {
     <ClientWrapper>
       <>
         <AdsWrapper
-          id="div-gpt-ad-1719487264835-0"
-          label="/23097334988/300x75"
+          id="div-gpt-ad-1720012368228-0"
+          label="/23097334988/A3"
           size={[300, 75]}
           divSize={{ x: 300, y: 75 }}
         />
