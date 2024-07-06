@@ -17,11 +17,6 @@ enum gender {
   Female
 }
 
-enum type {
-  admin
-  writer
-  user
-}
 
 enum isIndex {
   one
@@ -38,7 +33,6 @@ model user {
   bio       String
   gender    gender   @default(Male)
   dob       String   @default("2000-01-01")
-  type      type     @default(user)
   facebook  String
   instagram String
   linkedin  String

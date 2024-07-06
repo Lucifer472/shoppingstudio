@@ -2,36 +2,30 @@ import Link from "next/link";
 
 import Logout from "@/components/login/Logout";
 
-import getCurrentUser from "@/lib/user-util";
 import { cn } from "@/lib/utils";
 
 const SwitchNav = async ({ selected }: { selected: string }) => {
-  const user = await getCurrentUser();
   return (
     <div className="w-full flex items-center justify-center py-4">
       <div className="border border-black rounded-sm flex items-center justify-center ">
-        {user?.type === "admin" && (
-          <Link
-            href={"/admin/register"}
-            className={cn(
-              "px-4 py-2 hover:bg-slate-50 transition-colors",
-              selected == "register" ? "bg-slate-50" : ""
-            )}
-          >
-            Register
-          </Link>
-        )}
-        {user?.type === "admin" && (
-          <Link
-            href={"/admin/remove-author"}
-            className={cn(
-              "px-4 py-2 hover:bg-slate-50 transition-colors",
-              selected == "remove-author" ? "bg-slate-50" : ""
-            )}
-          >
-            Remove Author
-          </Link>
-        )}
+        <Link
+          href={"/admin/register"}
+          className={cn(
+            "px-4 py-2 hover:bg-slate-50 transition-colors",
+            selected == "register" ? "bg-slate-50" : ""
+          )}
+        >
+          Register
+        </Link>
+        <Link
+          href={"/admin/remove-author"}
+          className={cn(
+            "px-4 py-2 hover:bg-slate-50 transition-colors",
+            selected == "remove-author" ? "bg-slate-50" : ""
+          )}
+        >
+          Remove Author
+        </Link>
         <Link
           href={"/admin/list"}
           className={cn(
