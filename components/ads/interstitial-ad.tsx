@@ -1,16 +1,19 @@
 "use client";
+import { useAdState } from "@/state";
 import { useEffect } from "react";
 
 const InterstitialAd = () => {
+  const adData = useAdState((state) => state.adCode);
   useEffect(() => {
-    const script = document.createElement("script");
-    script.text = `window.googletag = window.googletag || { cmd: [] };
+    if (adData[7]) {
+      const script = document.createElement("script");
+      script.text = `window.googletag = window.googletag || { cmd: [] };
       let interstitialSlot;
 
       googletag.cmd.push(() => {
         // Define a web interstitial ad slot.
         interstitialSlot = googletag.defineOutOfPageSlot(
-          "/23097334988/F1",
+          "${adData[7].label}",
           googletag.enums.OutOfPageFormat.INTERSTITIAL
         );
 
@@ -39,10 +42,11 @@ const InterstitialAd = () => {
         googletag.display(interstitialSlot);
       });`;
 
-    script.setAttribute("type", "module");
+      script.setAttribute("type", "module");
 
-    document.head.appendChild(script);
-  }, []);
+      document.head.appendChild(script);
+    }
+  }, [adData]);
 
   return <></>;
 };

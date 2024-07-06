@@ -1,15 +1,18 @@
 "use client";
+import { useAdState } from "@/state";
 import { useEffect } from "react";
 
 const AnchorAd = () => {
+  const adData = useAdState((state) => state.adCode);
   useEffect(() => {
-    const script = document.createElement("script");
-    script.text = `window.googletag = window.googletag || { cmd: [] };
+    if (adData[6]) {
+      const script = document.createElement("script");
+      script.text = `window.googletag = window.googletag || { cmd: [] };
       let anchorSlot;
 
       googletag.cmd.push(() => {
         anchorSlot = googletag.defineOutOfPageSlot(
-          "/23097334988/A2",googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
+          "${adData[6].label}",googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR,
         );
 
         // Enable SRA and services.
@@ -18,10 +21,11 @@ const AnchorAd = () => {
         googletag.display(anchorSlot);
       });`;
 
-    script.setAttribute("type", "module");
+      script.setAttribute("type", "module");
 
-    document.head.appendChild(script);
-  }, []);
+      document.head.appendChild(script);
+    }
+  }, [adData]);
 
   return <></>;
 };

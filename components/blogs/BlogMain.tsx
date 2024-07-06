@@ -4,7 +4,7 @@ import { convertDateFormat } from "@/lib/date-util";
 import { Separator } from "@/components/ui/separator";
 import { blog } from "@prisma/client";
 import Image from "next/image";
-import { Ad1, Ad2, Ad3, Ad5 } from "../ads/ads";
+import { Ad2, Ad3 } from "../ads/ads";
 
 interface blogUser extends blog {
   Author: {
@@ -29,16 +29,6 @@ const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
   const adElement3 = {
     type: "Ad",
     data: Ad2,
-  };
-
-  const adElement4 = {
-    type: "Ad",
-    data: Ad1,
-  };
-
-  const adElement5 = {
-    type: "Ad",
-    data: Ad5,
   };
 
   blog.blog.splice(5, 0, adElement2);

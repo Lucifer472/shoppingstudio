@@ -17,6 +17,7 @@ const SwitchNav = async ({ selected }: { selected: string }) => {
         >
           Register
         </Link>
+
         <Link
           href={"/admin/remove-author"}
           className={cn(
@@ -26,6 +27,7 @@ const SwitchNav = async ({ selected }: { selected: string }) => {
         >
           Remove Author
         </Link>
+
         <Link
           href={"/admin/list"}
           className={cn(
@@ -43,6 +45,15 @@ const SwitchNav = async ({ selected }: { selected: string }) => {
           )}
         >
           Add Blogs
+        </Link>
+        <Link
+          href={"/admin/ads"}
+          className={cn(
+            "px-4 py-2 hover:bg-slate-50 transition-colors",
+            selected == "ads" ? "bg-slate-50" : ""
+          )}
+        >
+          Ads
         </Link>
         <Link
           href={"/admin/profile"}

@@ -17,6 +17,11 @@ enum gender {
   Female
 }
 
+enum type {
+  admin
+  writer
+  user
+}
 
 enum isIndex {
   one
@@ -65,5 +70,16 @@ model blog {
   pageText    String?
   connect     String?
 
+  btn1        String?
+  btn2        String?
+
   @@index([author])
+}
+
+model ads {
+  id          Int      @id @default(autoincrement())
+  name        String
+  label       String
+  adId        String    
+  size        Json
 }
