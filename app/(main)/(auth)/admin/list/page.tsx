@@ -3,6 +3,7 @@ import SwitchNav from "@/components/admin/SwitchNav";
 import BlogList from "@/components/admin/BlogList";
 
 import { getEditBlogs } from "@/lib/blog-util";
+export const revalidate = 0;
 
 const listPage = async ({
   searchParams,
