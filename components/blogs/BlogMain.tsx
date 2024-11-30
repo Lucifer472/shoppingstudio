@@ -6,7 +6,7 @@ import { convertDateFormat } from "@/lib/date-util";
 import { Separator } from "@/components/ui/separator";
 import { blog } from "@prisma/client";
 
-import { Ad1, Ad2, Ad3, EndOfArticleAd } from "../ads/ads";
+import { Ad3, EndOfArticleAd } from "../ads/ads";
 import { MiddleArticleBlogs } from "../etc/middle-artcle-blogs";
 
 interface blogUser extends blog {
@@ -22,19 +22,9 @@ const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
     ssr: false,
   });
 
-  const adElement1 = {
-    type: "Ad",
-    data: Ad1,
-  };
-
   const adElement2 = {
     type: "Ad",
     data: Ad3,
-  };
-
-  const adElement3 = {
-    type: "Ad",
-    data: Ad2,
   };
 
   const adElement4 = {
@@ -42,10 +32,8 @@ const BlogMain = ({ blog, link }: { blog: blogUser; link: string }) => {
     data: MiddleArticleBlogs,
   };
 
-  blog.blog.splice(2, 0, adElement1);
-  blog.blog.splice(5, 0, adElement2);
-  blog.blog.splice(8, 0, adElement3);
-  blog.blog.splice(10, 0, adElement4);
+  blog.blog.splice(2, 0, adElement2);
+  blog.blog.splice(6, 0, adElement4);
 
   return (
     <article className="flex flex-col w-full">

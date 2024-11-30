@@ -60,7 +60,7 @@ export default function RootLayout({
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3985697571961561"
           async
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         ></Script>
         <Toaster position="top-center" />
         <LoadingWrapper />

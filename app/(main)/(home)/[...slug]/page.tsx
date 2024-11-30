@@ -149,6 +149,7 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
 
   return (
     <>
+      <Ad1 />
       <div className="w-full padding md:py-4 bg-[#a03131] border-b border-gray-300/30 flex flex-wrap items-center justify-start">
         <div className="flex global-container flex-col">
           <div className="flex flex-wrap items-center justify-start">
@@ -178,6 +179,7 @@ const slugPage = async ({ params }: { params: { slug: string[] } }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLDBreadcrumb) }}
         ></script>
+        <Ad2 />
         <BlogMain blog={blog as any} link={blog.category} />
         {faq && faq[0].question !== "" && (
           <Accordion

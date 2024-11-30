@@ -6,7 +6,7 @@ import { AdsWrapper } from "@/components/wrappers/ad-wrapper";
 
 import { cn } from "@/lib/utils";
 
-export const Ad1 = () => {
+export const Ad3 = () => {
   return <AdsWrapper id="7246732020" layout="in-article" />;
 };
 
@@ -14,7 +14,7 @@ export const Ad2 = () => {
   return <AdsWrapper id="3273442398" />;
 };
 
-export const Ad3 = () => {
+export const Ad1 = () => {
   return <AdsWrapper id="5516462359" />;
 };
 
@@ -62,11 +62,11 @@ export const CustomAnchorAd = () => {
       <div className="w-full h-full">
         <ins
           className="adsbygoogle"
-          style={{
-            display: "block",
-          }}
+          style={{ display: "block" }}
           data-ad-client="ca-pub-3985697571961561"
           data-ad-slot="2221452275"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
         ></ins>
       </div>
     </div>
