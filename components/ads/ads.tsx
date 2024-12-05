@@ -19,6 +19,15 @@ export const Ad1 = () => {
 };
 
 export const EndOfArticleAd = () => {
+  useEffect(() => {
+    try {
+      // @ts-ignore
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   return (
     <div className="text-center flex w-full items-center justify-center flex-col">
       <span className="text-[10px]">SPONSORED</span>
