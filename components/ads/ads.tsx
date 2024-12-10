@@ -50,6 +50,12 @@ export const CustomAnchorAd = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setOpen(true);
+      try {
+        // @ts-ignore
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (error) {
+        console.log(error);
+      }
     }, 3000);
 
     return () => clearTimeout(timeout);
@@ -58,7 +64,7 @@ export const CustomAnchorAd = () => {
   return (
     <div
       className={cn(
-        "w-full sm:hidden h-[80px] p-1 fixed left-0 text-center transition-all duration-500 bg-neutral-200 z-10 shadow-xl",
+        "w-full sm:hidden h-auto min-h-[80px] p-1 fixed left-0 text-center transition-all duration-500 bg-neutral-200 z-10 shadow-xl",
         open ? "bottom-0" : "bottom-[-80px]"
       )}
     >
