@@ -73,7 +73,7 @@ export const CustomAnchorAd = () => {
         "w-full sm:hidden h-auto min-h-[80px] p-1 fixed left-0 text-center transition-all duration-500 bg-neutral-200 z-10 shadow-xl"
       }
       style={{
-        bottom: open ? "0px" : height ? `${height}px` : "-80px",
+        bottom: open ? "0px" : height ? `-${height}px` : "-80px",
       }}
     >
       <button
