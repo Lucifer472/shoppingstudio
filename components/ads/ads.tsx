@@ -48,7 +48,6 @@ export const EndOfArticleAd = () => {
 
 export const CustomAnchorAd = () => {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -62,7 +61,7 @@ export const CustomAnchorAd = () => {
     }, 3000);
 
     return () => clearTimeout(timeout);
-  }, [pathname]);
+  }, []);
 
   return (
     <div
