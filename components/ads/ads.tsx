@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 import { AdsWrapper } from "@/components/wrappers/ad-wrapper";
@@ -48,6 +48,7 @@ export const EndOfArticleAd = () => {
 
 export const CustomAnchorAd = () => {
   const [open, setOpen] = useState(false);
+  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -63,12 +64,17 @@ export const CustomAnchorAd = () => {
     return () => clearTimeout(timeout);
   }, []);
 
+  const height = useMemo(() => divRef.current?.offsetHeight, [divRef]);
+
   return (
     <div
-      className={cn(
-        "w-full sm:hidden h-auto min-h-[80px] p-1 fixed left-0 text-center transition-all duration-500 bg-neutral-200 z-10 shadow-xl",
-        open ? "bottom-0" : "bottom-[-80px]"
-      )}
+      ref={divRef}
+      className={
+        "w-full sm:hidden h-auto min-h-[80px] p-1 fixed left-0 text-center transition-all duration-500 bg-neutral-200 z-10 shadow-xl"
+      }
+      style={{
+        bottom: open ? "0px" : height ? `${height}px` : "-80px",
+      }}
     >
       <button
         onClick={() => setOpen((prev) => !prev)}
