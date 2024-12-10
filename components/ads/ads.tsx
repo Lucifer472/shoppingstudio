@@ -5,6 +5,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import { AdsWrapper } from "@/components/wrappers/ad-wrapper";
 
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 export const Ad3 = () => {
   return <AdsWrapper id="7246732020" layout="in-article" />;
@@ -19,6 +20,7 @@ export const Ad1 = () => {
 };
 
 export const EndOfArticleAd = () => {
+  const pathname = usePathname();
   useEffect(() => {
     try {
       // @ts-ignore
@@ -26,7 +28,7 @@ export const EndOfArticleAd = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [pathname]);
 
   return (
     <div className="text-center flex w-full items-center justify-center flex-col">
@@ -46,6 +48,7 @@ export const EndOfArticleAd = () => {
 
 export const CustomAnchorAd = () => {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -59,7 +62,7 @@ export const CustomAnchorAd = () => {
     }, 3000);
 
     return () => clearTimeout(timeout);
-  }, []);
+  }, [pathname]);
 
   return (
     <div
