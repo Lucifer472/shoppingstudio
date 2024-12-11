@@ -1,10 +1,9 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { useEffect, useState } from "react";
+import { XIcon } from "lucide-react";
 
 import { AdsWrapper } from "@/components/wrappers/ad-wrapper";
 
-import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
 export const Ad3 = () => {
@@ -47,40 +46,30 @@ export const EndOfArticleAd = () => {
 };
 
 export const CustomAnchorAd = () => {
-  const [open, setOpen] = useState(false);
-  const divRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setOpen(true);
-      try {
-        // @ts-ignore
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (error) {
-        console.log(error);
-      }
-    }, 3000);
-
-    return () => clearTimeout(timeout);
+    try {
+      // @ts-ignore
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
-  const height = useMemo(() => divRef.current?.offsetHeight, [divRef]);
+  if (!open) return;
 
   return (
     <div
-      ref={divRef}
       className={
         "w-full sm:hidden h-auto min-h-[80px] p-1 fixed left-0 text-center transition-all duration-500 bg-neutral-200 z-10 shadow-xl"
       }
-      style={{
-        bottom: open ? "0px" : height ? `-${height}px` : "-80px",
-      }}
     >
       <button
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={() => setOpen(false)}
         className="absolute top-[-30px] bg-neutral-200 cursor-pointer rounded-t-lg left-2 w-[40px] h-[30px] flex items-center justify-center"
       >
-        {open ? <ChevronDown /> : <ChevronUp />}
+        <XIcon />
       </button>
       <div className="w-full h-full">
         <ins
