@@ -62,7 +62,7 @@ export const CustomAnchorAd = () => {
   return (
     <div
       className={
-        "w-full sm:hidden h-auto min-h-[80px] p-1 fixed left-0 text-center transition-all duration-500 bg-neutral-200 z-10 shadow-xl"
+        "w-full sm:hidden h-auto min-h-[80px] p-1 fixed left-0 text-center transition-all duration-500 bg-neutral-200 z-10 shadow-xl bottom-0"
       }
     >
       <button
