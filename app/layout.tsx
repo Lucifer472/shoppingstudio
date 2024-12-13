@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import LoadingWrapper from "@/components/wrappers/loading-wrapper";
 import Footer from "@/components/footer/Footer";
 import { CardImage, description, keywords, title, url } from "@/constant";
-import { CustomAnchorAd } from "@/components/ads/ads";
+// import { CustomAnchorAd } from "@/components/ads/ads";
 
 import "@/app/globals.css";
 
@@ -67,7 +67,7 @@ export default function RootLayout({
         <LoadingWrapper />
         {children}
         <Footer />
-        <CustomAnchorAd />
+        {/* <CustomAnchorAd /> */}
       </body>
     </html>
   );
